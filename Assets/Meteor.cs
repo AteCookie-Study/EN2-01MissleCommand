@@ -81,6 +81,8 @@ public class Meteor : MonoBehaviour
     gameManager_.Daange(1);
 
         Destroy(gameObject);
+
+        Debug.Log("Fall");
     }
     // Update is called once per frame
     void Update()
