@@ -13,6 +13,9 @@ public class Meteor : MonoBehaviour
     /// </summary>
     [SerializeField] private float fallSpeedMax_ = 3.0f;
 
+    // スコアエフェクトプレハブ
+    [SerializeField] ScoreEffect scoreEffectPrefab_;
+
     /// <summary>
     /// 爆発プレハブ。生成元から受け取る
     /// </summary>
@@ -66,14 +69,26 @@ public class Meteor : MonoBehaviour
 
     }
 
-    
+
 
     private void Explosion()
     {
-        gameManager_.AddScore(100);
-        
+        int score = 100;
+
+        // スコアエフェクト生成
+        ScoreEffect scoreEffect = Instantiate(
+            scoreEffectPrefab_,
+            transform.position,
+            Quaternion.identity);
+        // スコア設定
+        scoreEffect.SetScore(score);
+
+        // GameManager に score 加算を通知
+        gameManager_.AddScore(score);
+
         Instantiate(explosionPrefab_, transform.position, Quaternion.identity);
         Destroy(gameObject);
+        
     }
 
     private void Fall() 
