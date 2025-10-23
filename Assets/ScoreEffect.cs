@@ -23,6 +23,8 @@ public class ScoreEffect : MonoBehaviour
     public void SetScore(int score)
     {
         GetComponent<TMP_Text>().text = score.ToString();
+
+        Debug.Log("test");
     }
 
     private void Update()

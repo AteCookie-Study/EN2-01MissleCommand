@@ -90,8 +90,8 @@ public class Meteor : MonoBehaviour
         // スコアエフェクト生成
         Explosion explosion = Instantiate(explosionPrefab_, transform.position, Quaternion.identity);
        explosion.chainNum = chainNum;
-        Destroy(gameObject);
         
+        Destroy(gameObject);
     }
 
     private void Fall() 
