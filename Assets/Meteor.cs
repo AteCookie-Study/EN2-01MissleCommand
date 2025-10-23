@@ -62,8 +62,10 @@ public class Meteor : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-    if(collision.gameObject.CompareTag("Explosion"))
-        { Explosion(); }
+        Explosion explosion;
+    if(collision.gameObject.CompareTag("Explosion")&&
+            collision.TryGetComponent(out explosion))
+        { Explosion(explosion); }
     if(collision.gameObject.CompareTag("Ground"))
         { Fall(); }
 
@@ -71,22 +73,23 @@ public class Meteor : MonoBehaviour
 
 
 
-    private void Explosion()
+    private void Explosion(Explosion otherExplosion)
     {
-        int score = 100;
+        int chainNum = otherExplosion.chainNum + 1;
 
-        // スコアエフェクト生成
-        ScoreEffect scoreEffect = Instantiate(
-            scoreEffectPrefab_,
-            transform.position,
-            Quaternion.identity);
-        // スコア設定
-        scoreEffect.SetScore(score);
+        int score = chainNum * 100;
 
         // GameManager に score 加算を通知
         gameManager_.AddScore(score);
 
-        Instantiate(explosionPrefab_, transform.position, Quaternion.identity);
+        // スコアエフェクト生成
+        ScoreEffect scoreEffect = Instantiate(scoreEffectPrefab_, transform.position, Quaternion.identity);
+        scoreEffect.SetScore(score); 
+
+
+        // スコアエフェクト生成
+        Explosion explosion = Instantiate(explosionPrefab_, transform.position, Quaternion.identity);
+       explosion.chainNum = chainNum;
         Destroy(gameObject);
         
     }
