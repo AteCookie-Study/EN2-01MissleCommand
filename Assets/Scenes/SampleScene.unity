@@ -630,6 +630,37 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1073293951
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1073293952}
+  m_Layer: 0
+  m_Name: ItemSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1073293952
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073293951}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10.71, y: 1.47, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1119034643
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,6 +1146,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionPrefab_: {fileID: 2910358955995847246, guid: bd1b42dc95f3eaa45afaef31f614da9a, type: 3}
+  reticlePrefab_: {fileID: 9087700500344757808, guid: 71955d858945f1544a6be5c05be61d43, type: 3}
+  missilePrefab_: {fileID: -3883266928198288631, guid: 9127100ca7463c94b9ee82f4fd64d70d, type: 3}
   meteorPrefab_: {fileID: 491305215239488711, guid: ce955f8c3a1922e4aa0ee1820dcab872, type: 3}
   ground_: {fileID: 1416450740}
   meteorInterval_: 1
@@ -1126,6 +1159,11 @@ MonoBehaviour:
   lifeBar_: {fileID: 358835389}
   maxLife_: 10
   life_: 0
+  items_:
+  - {fileID: 7319898522176457106, guid: 72fb052beef278943a23fe159c00949b, type: 3}
+  - {fileID: 8773940258087361357, guid: 47f013ae1908e9c44b9391da0289e929, type: 3}
+  itemSpawnPoint_: {fileID: 1073293952}
+  itemSpawnInterval_: 10
 --- !u!4 &1790218160
 Transform:
   m_ObjectHideFlags: 0
@@ -1366,3 +1404,4 @@ SceneRoots:
   - {fileID: 423076103}
   - {fileID: 1172685472}
   - {fileID: 49382329}
+  - {fileID: 1073293952}
